@@ -65,7 +65,7 @@ footer {
     background-color: #1e90ff;
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 5px 20px;
     position: relative;
     width: 100%;
     bottom: 0;
@@ -73,37 +73,26 @@ footer {
 
 .footer-content {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
-    font-size: 1.1em;
+    font-size: 0.9em;
     font-weight: 400;
 }
 
 .footer-content span {
-    display: block;
+    display: inline;
+    color: white;
 }
 
 .footer-content a {
-    color: #ffffff;
+    color: #ffa500;
     text-decoration: none;
     font-weight: bold;
 }
 
 .footer-content a:hover {
-    color: #ffa500;
+    color: #ffcc00;
     text-decoration: underline;
-}
-
-footer .footer-content span:first-child {
-    font-size: 1.3em;
-    font-weight: bold;
-}
-
-footer .footer-content span:last-child {
-    margin-top: 20px;
-    font-size: 1em;
-    color: #ddd;
 }
 
 .btn-logout {
