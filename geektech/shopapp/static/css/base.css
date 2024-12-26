@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #1e90ff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+header .menu {
+    display: flex;
+    gap: 20px;
+    color: #333;
+    font-size: 1.2em;
+}
+
+header .menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .menu a:hover {
+    text-decoration: underline;
+}
+
+header .log-reg-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+header .log-reg-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .log-reg-menu a:hover {
+    color: #ffa500;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #1e90ff;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+.footer-content span {
+    display: block;
+}
+
+.footer-content a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-content a:hover {
+    color: #ffa500;
+    text-decoration: underline;
+}
+
+footer .footer-content span:first-child {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+footer .footer-content span:last-child {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #ddd;
+}
+
+.btn-logout {
+    background-color: #ffffff;
+    color: #0056b3;
+    border: 2px solid #0056b3;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-logout:active {
+    background-color: #003d80;
+    color: #e0e0e0;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    header .log-reg-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+
+    .footer-content {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    header .menu {
+        font-size: 1em;
+    }
+
+    header .log-reg-menu {
+        font-size: 0.9em;
+    }
+
+    footer {
+        padding: 15px 10px;
+    }
+
+    .footer-content {
+        font-size: 0.9em;
+    }
+}

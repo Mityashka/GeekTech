@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: geektech
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DEBUG=False
+      - DJANGO_ALLOWED_HOSTS=158.160.39.142
+    command: gunicorn --bind 0.0.0.0:8000 your_project.wsgi:application

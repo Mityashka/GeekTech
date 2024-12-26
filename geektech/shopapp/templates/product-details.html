@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.product_name }} - GeekTech{% endblock %}
+{% block additional_styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product-details.css' %}">
+{% endblock %}
+{% block main %}
+        <div class="product-detail">
+            <h1 class="product-title">{{ product.product_name }}</h1>
+            <p class="manufacturer">Производитель: <span>{{ product.manufacturer }}</span></p>
+            <p class="price">Цена: <span>{{ product.price }} ₽</span></p>
+            {% if product.discount %}
+                <p class="discount">Скидка: <span>{{ product.discount }}%</span></p>
+            {% else %}
+            <p class="description">{{ product.description }}</p>
+            {% endif %}
+            {% if product.preview %}
+                <div class="product-preview">
+                    <img src="{{ product.preview.url }}" alt="{{ product.product_name }} preview" class="preview-image">
+                </div>
+            {% endif %}
+
+            <div class="product-images">
+                {% for image in product.images.all %}
+                    <div class="product-image">
+                        <img src="{{ image.image.url }}" alt="Изображение товара {{ product.product_name }}" class="product-img">
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="product-info">
+                <div class="product-stock">
+                    <p>Количество на складе: <span>{{ product.stock_quantity }}</span></p>
+                </div>
+            </div>
+            <a href="{% url 'shopapp:cart-add' product.id %}"><button class="add-to-cart-btn">Добавить в корзину</button></a>
+
+        </div>
+{% endblock %}

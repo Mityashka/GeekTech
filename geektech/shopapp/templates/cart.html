@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Корзина - GeekTech{% endblock %}
+{% block additional_styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+{% block main %}
+<div class="cart-container">
+    <div>Привет, {{ user.username }}!</div>
+    {% if not cart_items %}
+        <p class="cart-empty">Твоя корзина пуста</p>
+    {% else %}
+        {% for item in cart_items %}
+            <div class="cart-item">
+                <div>
+                    <p>Название: {{ item.product.product_name }}</p>
+                    <p>Цена за штуку: {{ item.product.price }} ₽</p>
+                    <p>Количество: {{ item.quantity }}</p>
+                    <p>Итого: {{ item.total_price }} ₽</p>
+                </div>
+                <div class="cart-item-actions">
+                    <a href="{% url 'shopapp:cart-add' item.product.id %}">+</a>
+                    <a href="{% url 'shopapp:cart-decrease' item.product.id %}">-</a>
+                    <a href="{% url 'shopapp:cart-delete' item.id %}">Очистить</a>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="cart-total">
+            <p>Итого: {{ total_price }} ₽</p>
+        </div>
+        <form id="order-form" method="POST" action="{% url 'shopapp:order-create' %}">
+            {% csrf_token %}
+            <button type="submit">Купить</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

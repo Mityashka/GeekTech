@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Корзина - GeekTech{% endblock %}
+{% block additional_styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block main %}
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Профиль пользователя</h1>
+        </div>
+        <div class="profile-info">
+            <p><strong>Имя:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Дата регистрации:</strong> {{ user.date_joined|date:"d.m.Y" }}</p>
+            <p><strong>Последний вход:</strong> {{ user.last_login|date:"d.m.Y H:i" }}</p>
+            <p><strong><a href="{% url 'shopapp:feedback' %}">Оставьте отзыв</a> </strong></p>
+            <p><strong><a href="{% url 'shopapp:cart' %}">Корзина</a> </strong></p>
+
+            <h3>История заказов</h3>
+            <ul>
+                {% if user.orders.all %}
+                    {% for order in user.orders.all %}
+                        <li>Заказ №{{ order.id }} на сумму {{ order.total_price }} ₽ от {{ order.created_at|date:"d.m.Y H:i" }}</li>
+                        <ul>
+                            {% for item in order.items.all %}
+                                <li>Товар: {{ item.product.product_name }}</li>
+                                <li>Количество: {{ item.quantity }}</li>
+                                <li>Цена за штуку: {{ item.price }} ₽</li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                {% else %}
+                    <li>У вас нет заказов.</li>
+                {% endif %}
+            </ul>
+        </div>
+        <div>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{% url 'shopapp:index' %}">
+                <button type="submit" class="btn-logout">Выйти</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

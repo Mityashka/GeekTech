@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Контакты - GeekTech{% endblock %}
+
+{% block additional_styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+{% endblock %}
+
+{% block main %}
+    <h1>Наши контакты</h1>
+    <div class="container">
+        {% for contact in contacts %}
+            <div class="contact-item">
+                <h2>{{ contact.title }}</h2>
+                <p>{{ contact.text }}</p>
+            </div>
+        {% empty %}
+            <div class="contact-item">
+                <h2>Информация недоступна</h2>
+                <p>На данный момент контакты отсутствуют. Пожалуйста, свяжитесь с нами позже.</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

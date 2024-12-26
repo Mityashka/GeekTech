@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}GeekTech{% endblock %}
+
+{% block additional_styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/geektech.css' %}">
+{% endblock %}
+
+{% block main %}
+    <section>
+        <div class="catalog-menu">
+            <h1>Категории товаров</h1>
+            <ul class="catalog-menu-items">
+                {% for category in categories %}
+                    <li><a href="{% url 'shopapp:category-detail' slug=category.slug %}">{{ category.name }}</a></li>
+                {% empty %}
+                    <li>Нет доступных категорий.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2 class="center-title">Все товары</h2>
+            {% if products %}
+            <ul class="product-list">
+                {% for product in products %}
+                    <li>
+                        {% if product.preview %}
+                            <img src="{{ product.preview.url }}" alt="{{ product.product_name }}">
+                        {% else %}
+                            <img src="{% static 'images/no-image.png' %}" alt="No image available">
+                        {% endif %}
+                        <a href="{% url 'shopapp:product-details' product.pk %}">
+                        <h3>{{ product.product_name }}</h3>
+                        </a>
+                        <p>Цена: {{ product.price }} ₽</p>
+                        <p>Категория: {{ product.category.name }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="center-title">Нет доступных товаров.</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+

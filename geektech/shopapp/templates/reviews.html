@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Отзывы - GeekTech{% endblock %}
+
+{% block additional_styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reviews.css' %}">
+{% endblock %}
+
+{% block main %}
+<h1>Отзывы наших клиентов</h1>
+
+<div class="feedbacks-container">
+    {% for review in feedbacks %}
+        <div class="feedback">
+            <p><strong>{{ review.title }}</strong></p>
+            <p>{{ review.text }}</p>
+            <p class="name">Автор: {{ review.author.username }}</p>
+            <p class="date">{{ review.created_timestamp|date:"d.m.Y H:i" }}</p>
+        </div>
+    {% empty %}
+        <div class="no-feedback">
+            <p>Пока нет отзывов. Будьте первым, кто оставит отзыв!</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

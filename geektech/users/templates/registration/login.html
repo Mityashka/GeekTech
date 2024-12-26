@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход - GeekTech{% endblock %}
+{% block additional_styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/log-reg.css' %}">
+{% endblock %}
+{% block main %}
+<div class="auth-page">
+    <div class="auth-card">
+        <h2 class="auth-title">Добро пожаловать!</h2>
+        <p class="auth-subtitle">Войдите в свой аккаунт, чтобы продолжить</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="auth-input-group">
+                <input type="text" id="username" name="username" placeholder=" " required>
+                <label for="username">Имя пользователя</label>
+            </div>
+            <div class="auth-input-group">
+                <input type="password" id="password" name="password" placeholder=" " required>
+                <label for="password">Пароль</label>
+            </div>
+            <button type="submit" class="auth-btn">Войти</button>
+            <a href="{% url 'users:register' %}" class="auth-link">Зарегистрироваться</a>
+            <div class="auth-errors">{{ form.errors }}</div>
+        </form>
+    </div>
+</div>
+{% endblock %}

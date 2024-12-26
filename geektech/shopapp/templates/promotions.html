@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Акции - GeekTech{% endblock %}
+{% block additional_styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/promotions.css' %}">
+{% endblock %}
+{% block main %}
+        <h1>Акции и специальные предложения</h1>
+        {% for promotion in promotions %}
+        <div class="promotion-item">
+            <h2>{{ promotion.title }}</h2>
+            <p>{{ promotion.text }}</p>
+            {% endfor %}
+        </div>
+{% endblock %}

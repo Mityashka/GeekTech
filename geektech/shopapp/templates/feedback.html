@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Оставить отзыв - GeekTech{% endblock %}
+{% block additional_styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/feedback.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="feedback-page">
+    <form class="feedback-card" action="{% url 'shopapp:feedback' %}" method="POST">
+        {% csrf_token %}
+        <h2 class="feedback-title">Оставьте свой отзыв</h2>
+        <p class="feedback-subtitle">Ваше мнение очень важно для нас</p>
+        <div class="feedback-input-group">
+            <textarea name="text" rows="5" placeholder="Напишите ваш отзыв здесь..." required></textarea>
+        </div>
+        <div class="feedback-input-group">
+            <input type="text" name="title" placeholder="Заголовок отзыва" required>
+        </div>
+        <button type="submit" class="feedback-btn">Отправить</button>
+    </form>
+</div>
+{% endblock %}
