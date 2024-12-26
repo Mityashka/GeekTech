@@ -8,10 +8,12 @@ RUN pip install poetry
 
 WORKDIR /geektech
 
-COPY geektech .
+COPY pyproject.toml poetry.lock /geektech/
 
 RUN poetry config virtualenvs.create false \
     && poetry install --no-dev
+
+COPY geektech /geektech/
 
 RUN python manage.py collectstatic --noinput
 
