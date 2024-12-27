@@ -1,4 +1,3 @@
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -102,10 +101,8 @@ ENV/
 .mypy_cache/
 
 .DS_Store
-*.sqlite3
 geektech/media/
 *.pyc
-*.db
 *.pid
 
 # Ignore Django Migrations in Development if you are working on team

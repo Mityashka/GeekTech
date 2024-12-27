@@ -7,6 +7,8 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+      - ./db.sqlite3:/app/db.sqlite3
+
     environment:
       - DEBUG=False
       - DJANGO_ALLOWED_HOSTS=158.160.39.142
