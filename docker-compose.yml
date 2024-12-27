@@ -6,9 +6,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./db.sqlite3:/geektech/db.sqlite3
+      - ./geektech/db.sqlite3:/geektech/db.sqlite3
       - ./geektech:/geektech
-
     environment:
       - DEBUG=False
       - DJANGO_ALLOWED_HOSTS=158.160.39.142
