@@ -37,6 +37,11 @@
 
     <main>
         {% block main %}
+	{% if message %}
+        <div class="error-message">
+            <p>{{ message }}</p>
+        </div>
+    {% endif %}
         {% endblock %}
     </main>
 
