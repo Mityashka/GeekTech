@@ -137,10 +137,6 @@ class OrderItem(models.Model):
     def __str__(self):
         return f"{self.product.product_name} - {self.quantity} шт"
 
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from .models import Cart, Order, OrderItem
-
 def order_create(request):
     if request.method == 'POST':
         cart_items = Cart.objects.filter(user=request.user)
