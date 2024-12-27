@@ -6,8 +6,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/app
-      - ./db.sqlite3:/app/db.sqlite3
+      - ./db.sqlite3:/geektech/db.sqlite3
+      - ./geektech:/geektech
 
     environment:
       - DEBUG=False
