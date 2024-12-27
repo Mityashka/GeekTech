@@ -8,6 +8,7 @@ services:
     volumes:
       - ./geektech/db.sqlite3:/geektech/db.sqlite3
       - ./geektech:/geektech
+      - ./geektech/media:/geektech/media
     environment:
       - DEBUG=False
       - DJANGO_ALLOWED_HOSTS=158.160.39.142
