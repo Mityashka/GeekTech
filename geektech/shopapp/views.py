@@ -8,7 +8,7 @@ from django.views import View
 from django.views.generic import ListView, DetailView
 from django.db import models
 
-from .models import Product, Category, Cart, Feedback, Promotion, Delivery, Contact
+from .models import Product, Category, Cart, Feedback, Promotion, Delivery, Contact, Order, OrderItem
 
 
 # Create your views here.
@@ -110,32 +110,10 @@ def cart_decrease(request, product_id: int):
         cart_item.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
-    created_at = models.DateTimeField(auto_now_add=True)
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
-    products = models.ManyToManyField(Product, through='OrderItem')
-
-    def update_total_price(self):
-        total = 0
-        for item in self.items.all():
-            total += item.quantity * item.price
-        self.total_price = total
-        self.save()
-
-    def __str__(self):
-        return f"Заказ №{self.id} - {self.user.username}"
-
-class OrderItem(models.Model):
-    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=1)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-
-
-
-    def __str__(self):
-        return f"{self.product.product_name} - {self.quantity} шт"
+def order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    order.update_total_price()
+    return render(request, 'order_detail.html', {'order': order})
 
 def order_create(request):
     if request.method == 'POST':
