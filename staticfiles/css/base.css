@@ -14,6 +14,10 @@ body {
     min-height: 100vh;
 }
 
+main {
+    flex-grow: 1;
+}
+
 header {
     background-color: #1e90ff;
     color: white;
@@ -21,18 +25,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: Arial, sans-serif;
 }
 
 header .menu {
     display: flex;
     gap: 20px;
-    color: #333;
     font-size: 1.2em;
 }
 
 header .menu a {
-    color: #fff;
+    color: white;
     text-decoration: none;
 }
 
@@ -42,13 +44,11 @@ header .menu a:hover {
 
 header .log-reg-menu {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
     gap: 20px;
 }
 
 header .log-reg-menu a {
-    color: #fff;
+    color: white;
     text-decoration: none;
 }
 
@@ -61,45 +61,23 @@ footer {
     background-color: #1e90ff;
     color: white;
     text-align: center;
-    padding: 40px 20px;
-    position: relative;
-    width: 100%;
-    bottom: 0;
+    padding: 5px 20px;
+    margin-top: auto;
 }
 
 .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.1em;
-    font-weight: 400;
-}
-
-.footer-content span {
-    display: block;
+    font-size: 0.9em;
 }
 
 .footer-content a {
-    color: #ffffff;
+    color: #ffa500;
     text-decoration: none;
     font-weight: bold;
 }
 
 .footer-content a:hover {
-    color: #ffa500;
+    color: #ffcc00;
     text-decoration: underline;
-}
-
-footer .footer-content span:first-child {
-    font-size: 1.3em;
-    font-weight: bold;
-}
-
-footer .footer-content span:last-child {
-    margin-top: 20px;
-    font-size: 1em;
-    color: #ddd;
 }
 
 .btn-logout {
@@ -116,63 +94,28 @@ footer .footer-content span:last-child {
 
 .btn-logout:hover {
     background-color: #0056b3;
-    color: #ffffff;
-    border-color: #ffffff;
-}
-
-.btn-logout:active {
-    background-color: #003d80;
-    color: #e0e0e0;
-}
-
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    header .menu {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        width: 100%;
-    }
-
-    header .log-reg-menu {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        width: 100%;
-    }
-
-    footer {
-        padding: 20px 10px;
-    }
-
-    .footer-content {
-        font-size: 1em;
-    }
+    color: white;
+    border-color: white;
 }
 
 @media (max-width: 480px) {
     header {
-        padding: 10px;
+        flex-direction: column;
     }
 
-    header .menu {
-        font-size: 1em;
+    header .menu, header .log-reg-menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
     }
 
-    header .log-reg-menu {
-        font-size: 0.9em;
+    header .log-reg-menu a {
+        font-weight: bold;
+        color: #ffffff;
     }
 
-    footer {
-        padding: 15px 10px;
-    }
-
-    .footer-content {
-        font-size: 0.9em;
+    header .log-reg-menu a:hover {
+        color: #ff6347;
+        text-decoration: underline;
     }
 }

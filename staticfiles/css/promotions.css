@@ -5,7 +5,7 @@ h1 {
     color: #1e90ff;
 }
 
-.delivery-item {
+.promotion-item {
     background-color: #fff;
     padding: 20px;
     margin: 20px auto;
@@ -16,19 +16,40 @@ h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.delivery-item h2 {
+.promotion-item h2 {
     font-size: 1.8em;
     color: #333;
     margin-bottom: 10px;
 }
 
-.delivery-item p {
+.promotion-item p {
     font-size: 1.2em;
     color: #666;
     margin: 0;
 }
 
-.delivery-item:hover {
+.promotion-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.7em;
+        margin-bottom: 10px;
+    }
+
+    .promotion-item {
+        max-width: 95%;
+        padding: 10px;
+    }
+
+    .promotion-item h2 {
+        font-size: 1.3em;
+        margin-bottom: 6px;
+    }
+
+    .promotion-item p {
+        font-size: 0.9em;
+    }
 }

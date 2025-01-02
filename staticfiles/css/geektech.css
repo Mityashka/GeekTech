@@ -54,7 +54,7 @@
 
 .product-list img {
     max-width: 100%;
-    height: 250px;
+    height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
 }
@@ -80,13 +80,30 @@
         padding: 10px;
     }
 
+    .center-title {
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+    .main-content .center-title {
+        font-size: 1.5em;
+    }
+
     .product-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
-    .center-title {
-        margin-top: 10px;
-        font-size: 1.5rem;
+    .product-list img {
+        height: 200px;
     }
+
+    .product-list h3 {
+        font-size: 1em;
+    }
+
+    .product-list p {
+        font-size: 0.9em;
+    }
+}
 }
