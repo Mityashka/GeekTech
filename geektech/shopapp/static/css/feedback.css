@@ -3,88 +3,77 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #f3f4f6, #e3e6f0);
-    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #ffebee);
+    font-family: 'Roboto', sans-serif;
     margin: 0;
+    padding: 20px;
 }
 
 .feedback-card {
     background: #ffffff;
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
+    max-width: 600px;
     width: 100%;
-    max-width: 500px;
 }
 
 .feedback-title {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
-    color: #2c3e50;
+    color: #34495e;
     margin-bottom: 10px;
 }
 
 .feedback-subtitle {
     font-size: 16px;
     color: #7f8c8d;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .feedback-input-group {
-    position: relative;
     margin-bottom: 20px;
 }
 
-.feedback-input-group textarea {
+.feedback-input,
+.feedback-textarea {
     width: 100%;
-    padding: 15px 10px;
+    padding: 15px;
     border: 1px solid #dfe6e9;
     border-radius: 10px;
     outline: none;
     font-size: 16px;
-    color: #2c3e50;
+    color: #34495e;
     background: #f9f9f9;
     transition: border-color 0.3s, box-shadow 0.3s;
-    resize: vertical;
 }
 
-.feedback-input-group textarea:focus {
-    border-color: #6c5ce7;
-    box-shadow: 0 0 8px rgba(108, 92, 231, 0.5);
+.feedback-input:focus,
+.feedback-textarea:focus {
+    border-color: #1e88e5;
+    box-shadow: 0 0 8px rgba(30, 136, 229, 0.5);
     background: #ffffff;
 }
 
 .feedback-btn {
-    display: inline-block;
     width: 100%;
-    padding: 12px 20px;
-    background: linear-gradient(135deg, #6c5ce7, #81ecec);
+    padding: 12px;
+    background: linear-gradient(135deg, #42a5f5, #26c6da);
     color: #ffffff;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
 
 .feedback-btn:hover {
-    background: linear-gradient(135deg, #5a4ed4, #74d2d2);
+    background: linear-gradient(135deg, #1e88e5, #00acc1);
     transform: translateY(-3px);
 }
 
 .feedback-btn:active {
     transform: translateY(0);
-}
-
-.feedback-card::after {
-    content: '';
-    display: block;
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 50px;
-    height: 4px;
-    background: #6c5ce7;
-    border-radius: 2px;
 }

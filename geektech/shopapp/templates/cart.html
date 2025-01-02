@@ -21,8 +21,8 @@
                     <p>Итого: {{ item.total_price }} ₽</p>
                 </div>
                 <div class="cart-item-actions">
-                    <a href="{% url 'shopapp:cart-add' item.product.id %}">+</a>
                     <a href="{% url 'shopapp:cart-decrease' item.product.id %}">-</a>
+                    <a href="{% url 'shopapp:cart-add' item.product.id %}">+</a>
                     <a href="{% url 'shopapp:cart-delete' item.id %}">Очистить</a>
                 </div>
             </div>

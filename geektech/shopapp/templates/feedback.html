@@ -12,14 +12,14 @@
     <form class="feedback-card" action="{% url 'shopapp:feedback' %}" method="POST">
         {% csrf_token %}
         <h2 class="feedback-title">Оставьте свой отзыв</h2>
-        <p class="feedback-subtitle">Ваше мнение очень важно для нас</p>
+        <p class="feedback-subtitle">Ваше мнение помогает нам становиться лучше</p>
         <div class="feedback-input-group">
-            <textarea name="text" rows="5" placeholder="Напишите ваш отзыв здесь..." required></textarea>
+            <input type="text" name="title" placeholder="Заголовок отзыва" class="feedback-input" required>
         </div>
         <div class="feedback-input-group">
-            <input type="text" name="title" placeholder="Заголовок отзыва" required>
+            <textarea name="text" rows="5" placeholder="Напишите ваш отзыв здесь..." class="feedback-textarea" required></textarea>
         </div>
-        <button type="submit" class="feedback-btn">Отправить</button>
+        <button type="submit" class="feedback-btn">Отправить отзыв</button>
     </form>
 </div>
 {% endblock %}
