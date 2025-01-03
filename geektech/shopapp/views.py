@@ -19,25 +19,30 @@ class ShopIndexView(View):
         categories = Category.objects.all()
         return render(request, 'geektech.html', {'products': products, 'categories': categories})
 
+
 class ReviewsView(View):
     def get(self, request: HttpRequest):
         feedbacks = Feedback.objects.all().order_by('-created_timestamp')
         return render(request, 'reviews.html', {'feedbacks': feedbacks})
 
+
 class PromotionsView(View):
     def get(self, request: HttpRequest):
         promotions = Promotion.objects.all()
-        return render(request, 'promotions.html', {'promotions':promotions})
+        return render(request, 'promotions.html', {'promotions': promotions})
+
 
 class DeliveryView(View):
     def get(self, request: HttpRequest):
         deliveries = Delivery.objects.all()
-        return render(request, 'delivery.html', {'deliveries':deliveries})
+        return render(request, 'delivery.html', {'deliveries': deliveries})
+
 
 class ContactsView(View):
     def get(self, request: HttpRequest):
         contacts = Contact.objects.all()
-        return render(request, 'contacts.html', {'contacts':contacts})
+        return render(request, 'contacts.html', {'contacts': contacts})
+
 
 class ProductListView(View):
     model = Product
@@ -48,6 +53,7 @@ class ProductListView(View):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         return context
+
 
 class CategoryDetailsView(ListView):
     template_name = 'category.html'
@@ -63,6 +69,7 @@ class CategoryDetailsView(ListView):
         context['categories'] = Category.objects.all()
         return context
 
+
 class CategoryPreviewView(View):
     def get(self, request, slug):
         category = Category.objects.get(slug=slug)
@@ -74,6 +81,7 @@ class ProductDetailsView(DetailView):
     template_name = 'product-details.html'
     context_object_name = 'product'
 
+
 @login_required
 def cart_view(request: HttpRequest):
     cart_items = Cart.objects.filter(user=request.user)
@@ -83,6 +91,7 @@ def cart_view(request: HttpRequest):
     return render(request, 'cart.html', {'cart_items': cart_items, 'total_price': total_price})
 
 
+@login_required
 def cart_add(request: HttpRequest, product_id: int):
     current_page = request.META.get('HTTP_REFERER')
     product = Product.objects.get(id=product_id)
@@ -96,10 +105,12 @@ def cart_add(request: HttpRequest, product_id: int):
         cart.save()
         return HttpResponseRedirect(current_page)
 
+
 def cart_delete(request: HttpRequest, product_id: int):
     cart = Cart.objects.get(id=product_id)
     cart.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
 
 def cart_decrease(request, product_id: int):
     cart_item = Cart.objects.get(product__id=product_id)
@@ -110,10 +121,12 @@ def cart_decrease(request, product_id: int):
         cart_item.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
 def order_detail(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     order.update_total_price()
     return render(request, 'order_detail.html', {'order': order})
+
 
 def order_create(request):
     if request.method == 'POST':
@@ -162,6 +175,3 @@ class FeedBackView(View):
                 author=request.user
             )
         return redirect('shopapp:reviews')
-
-
-
