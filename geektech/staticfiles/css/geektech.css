@@ -1,0 +1,139 @@
+.catalog-menu {
+    width: 250px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 100vh;
+    position: fixed;
+    top: 80px;
+    left: 0;
+}
+
+.catalog-menu h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.catalog-menu .catalog-menu-items {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.catalog-menu .catalog-menu-items li {
+    margin-bottom: 10px;
+}
+
+.catalog-menu .catalog-menu-items li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.catalog-menu .catalog-menu-items li a:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-list li {
+    list-style-type: none;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-list img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.center-title {
+    text-align: center;
+    margin-top: 80px;
+    font-size: 1.8rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .catalog-menu {
+        width: 200px;
+        position: static;
+        margin-top: 0;
+        padding: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .center-title {
+        font-size: 1.8rem;
+    }
+
+    .product-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .product-list img {
+        height: 250px;
+    }
+
+    .product-list h3 {
+        font-size: 1em;
+    }
+
+    .product-list p {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-menu {
+        width: 100%;
+        height: auto;
+        position: static;
+        margin-top: 0;
+        padding: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .center-title {
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .product-list img {
+        height: 150px;
+    }
+
+    .product-list h3 {
+        font-size: 0.9em;
+    }
+
+    .product-list p {
+        font-size: 0.8em;
+    }
+}
