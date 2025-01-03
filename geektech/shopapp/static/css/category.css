@@ -50,6 +50,21 @@ a:hover {
     text-decoration: underline;
 }
 
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .center-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .product-list {
+        gap: 15px;
+    }
+}
 
 @media (max-width: 480px) {
     .main-content {
@@ -57,8 +72,10 @@ a:hover {
         padding: 10px;
     }
 
-    .main-content .center-title {
-        font-size: 1.5em;
+    .center-title {
+        margin-top: 10px;
+        font-size: 1.5rem;
+        text-align: center;
     }
 
     .product-list {
@@ -67,14 +84,14 @@ a:hover {
     }
 
     .product-list img {
-        height: 200px;
+        height: 150px;
     }
 
     .product-list h3 {
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .product-list p {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 }

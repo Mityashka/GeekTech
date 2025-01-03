@@ -119,3 +119,23 @@ footer {
         text-decoration: underline;
     }
 }
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    header .menu, header .log-reg-menu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header .log-reg-menu a {
+        font-size: 1.1em;
+        color: #ffffff;
+    }
+
+    header .log-reg-menu a:hover {
+        text-decoration: underline;
+    }
+}
