@@ -60,6 +60,7 @@ body {
 
 .add-to-cart-btn:hover {
     background-color: #0056b3;
+    cursor: pointer;
 }
 
 .product-images-section {
@@ -99,23 +100,94 @@ body {
     background-color: #f9f9f9;
 }
 
-@media (max-width: 480px) {
-    h1 {
+@media (max-width: 768px) {
+    .product-detail {
+        padding: 15px;
+    }
+
+    .product-title {
         font-size: 1.7em;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .manufacturer, .price, .discount, .description {
+        font-size: 1em;
         margin-bottom: 10px;
     }
 
-    .promotion-item {
-        max-width: 95%;
+    .product-preview {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .preview-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        object-fit: contain;
+        cursor: pointer;
+    }
+
+    .product-images {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    .product-info {
+        margin-bottom: 20px;
+    }
+
+    .product-stock p {
+        font-size: 1em;
+    }
+
+    .add-to-cart-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.1em;
+        border: none;
+        cursor: pointer;
+    }
+
+    .add-to-cart-btn:hover {
+        background-color: #ff4500;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-title {
+        font-size: 1.5em;
+    }
+
+    .product-preview {
+        margin-bottom: 15px;
+    }
+
+    .preview-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .product-images {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-info {
+        margin-bottom: 15px;
+    }
+
+    .add-to-cart-btn {
         padding: 10px;
-    }
-
-    .promotion-item h2 {
-        font-size: 1.3em;
-        margin-bottom: 6px;
-    }
-
-    .promotion-item p {
-        font-size: 0.9em;
+        font-size: 1em;
     }
 }
